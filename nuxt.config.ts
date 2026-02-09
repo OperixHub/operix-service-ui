@@ -8,6 +8,16 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    optimizeDeps: {
+      include: [
+        '@number-flow/vue',
+        '@internationalized/date',
+        'vuedraggable',
+        'date-fns',
+        '@unovis/ts',
+        '@unovis/vue',
+      ],
+    },
   },
 
   components: [

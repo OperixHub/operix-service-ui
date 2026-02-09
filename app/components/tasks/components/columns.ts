@@ -13,24 +13,24 @@ export const columns: ColumnDef<Task>[] = [
     id: 'select',
     header: ({ table }) => h(Checkbox, {
       'checked': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
-      'onUpdate:checked': value => table.toggleAllPageRowsSelected(!!value),
+      'onUpdate:checked': (value: any) => table.toggleAllPageRowsSelected(!!value),
       'ariaLabel': 'Select all',
       'class': 'translate-y-0.5',
     }),
-    cell: ({ row }) => h(Checkbox, { 'checked': row.getIsSelected(), 'onUpdate:checked': value => row.toggleSelected(!!value), 'ariaLabel': 'Select row', 'class': 'translate-y-0.5' }),
+    cell: ({ row }) => h(Checkbox, { 'checked': row.getIsSelected(), 'onUpdate:checked': (value: any) => row.toggleSelected(!!value), 'ariaLabel': 'Select row', 'class': 'translate-y-0.5' }),
     enableSorting: false,
     enableHiding: false,
   },
   {
     accessorKey: 'id',
-    header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Task' }),
+    header: ({ column }) => h(DataTableColumnHeader, { column, title: 'OS' }),
     cell: ({ row }) => h('div', { class: 'w-20' }, row.getValue('id')),
     enableSorting: false,
     enableHiding: false,
   },
   {
     accessorKey: 'title',
-    header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Title' }),
+    header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Cliente' }),
 
     cell: ({ row }) => {
       const label = labels.find(label => label.value === row.original.label)
@@ -43,7 +43,7 @@ export const columns: ColumnDef<Task>[] = [
   },
   {
     accessorKey: 'status',
-    header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Status' }),
+    header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Situação' }),
 
     cell: ({ row }) => {
       const status = statuses.find(
@@ -64,7 +64,7 @@ export const columns: ColumnDef<Task>[] = [
   },
   {
     accessorKey: 'priority',
-    header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Priority' }),
+    header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Pagamento' }),
     cell: ({ row }) => {
       const priority = priorities.find(
         priority => priority.value === row.getValue('priority'),
